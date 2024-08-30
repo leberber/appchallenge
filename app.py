@@ -95,7 +95,7 @@ def plotly_bar_layout():
 df = pd.read_csv("data/survey.csv")
 df.columns = [i.replace('-', '_') for i in df.columns]
 
-m= pd.merge(pd.read_pickle('data/amazon-purchases.pkl'), df, on='Survey ResponseID',  how='inner')
+m= pd.merge(pd.read_csv('data/amazon-purchases.csv'), df, on='Survey ResponseID',  how='inner')
 m= pd.merge(pd.read_csv('data/states.csv', sep='\t'), m, left_on='state',  right_on='Shipping Address State', how='inner')
 m = m.dropna(subset=['Title', 'Category'])
 m.columns = [i.replace('-', '_') for i in m.columns]
