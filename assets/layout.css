@@ -1,0 +1,105 @@
+/* setTimeout(() => { debugger }, 3000) */
+:root {
+    --header-height:0;
+    --sidebar-width:400px;
+    --sidebar-padding:20px;
+    --theme-background:rgb(46, 46, 46);
+    --theme-background-darker:#2e2e2e;
+    --shadow-dk :rgba(219, 166, 232, 0.1) 0px 3px 12px;
+}
+
+.hovertext path{
+    stroke: none !important;
+}
+.hovertext rect {
+    fill: none !important;
+}
+
+.legend rect {
+    fill: none !important;
+}
+
+.hovertext text.nums {
+   fill: rgb(191, 187, 187)  !important                                          
+}
+
+.js-plotly-plot .plotly .cursor-crosshair  {
+    cursor: pointer !important;
+}
+#sub-graphs{
+    overflow: scroll;
+}
+
+.bg-switch{
+    background-color: var(--theme-background);
+}
+.shadow-dk{
+    box-shadow: var( --shadow-dk)
+}
+
+.bg-switch-darker{
+    background-color: var(--theme-background-darker);
+}
+
+.sidebar-style{
+    overflow-x: auto;
+    height: 100%;
+    position: relative;
+}
+
+.add-filters-accordion{
+    width: calc(var(--sidebar-width) - 2 * var(--sidebar-padding));
+    z-index: 2000;
+}
+
+.content-extended{
+    margin-left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: all 0.5s;
+}
+
+.content-shrinked{
+    margin-left: var(--sidebar-width);
+    width: calc(100vw - var(--sidebar-width));
+    height: 100vh;
+    transition: all 0.5s;
+}
+
+
+.sidebar-shrinked{
+    display:none;
+    width: calc(100vw - var(--sidebar-width));
+    position: fixed;
+    height: 100vh;
+} 
+
+
+@keyframes smooth-appear {
+    to{
+      bottom: 0px;
+      opacity:1;
+    }
+  }
+
+.sidebar-extended {
+    width: var(--sidebar-width);
+    position: fixed;
+    height: 100vh;
+    bottom: -100%;
+    opacity:0;
+    animation: smooth-appear 1s ease forwards;
+  }
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.highcharts-credits{
+    display:none
+ }
+
+ .highcharts-contextbutton{
+    display: none;
+ }

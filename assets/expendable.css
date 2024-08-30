@@ -1,0 +1,86 @@
+
+.expandable-box {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    transition: height 0.5s ease, width 0.5s ease; /* Smooth transition for height and width */
+    cursor: pointer;
+    height: 90px;
+    width: 40px;
+    overflow: hidden; /* Prevent overflow when collapsed */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: rgba(186, 7, 231, 0.1) 0px 3px 12px;
+}
+
+.expandable-box .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth rotation and opacity change */
+    opacity: 1;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg); /* Centered vertical text */
+color:gray
+}
+
+.expandable-box .horizontal-text {
+    display: none;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth rotation and opacity change */
+    opacity: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    align-items: center;
+    justify-content: center;
+    /* color:red */
+    color:gray
+}
+
+.expandable-box:hover {
+    height: 100%;
+    width: 250px;
+}
+
+.expandable-box:hover .vertical-text {
+    display: none;
+}
+
+.expandable-box:hover .horizontal-text {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(0deg); /* Rotate in */
+    opacity: 1; /* Fade in */
+}
+
+.expandable-box .children-content {
+    display: none; /* Hide content initially */
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+}
+
+.expandable-box:hover .children-content {
+    display: block; /* Show content on hover */
+    opacity: 1; /* Ensure content is visible */
+    overflow: scroll !important;
+    /* margin-left: 20px; */
+  width: 90% !important;
+  /* height: 91%; */
+  position: absolute;
+  top:45px;
+  bottom: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px!important;
+  border-radius: 15px;
+  /* border: 2px solid red; */
+}
+
